@@ -18,6 +18,9 @@ firebase:
     path: /firebase/serviceAccountKey.json
   hash-config:
     path: /firebase/hashConfig.json
+  sample:
+    # root : build/resources/main
+    path: static/json/goals.json
 
 server:
   port: 1469
@@ -26,4 +29,5 @@ logging:
     console: UTF-8
   level:
     root: info
+    web: info
     

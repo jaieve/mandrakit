@@ -1,0 +1,82 @@
+[
+    {"category1" : {
+        "0": "goal1",
+        "1": "goal2",
+        "2": "goal3",
+        "3": "goal4",
+        "4": "goal5",
+        "5": "goal6",
+        "6": "goal7",
+        "7": "goal8"
+    }},
+    {"category2" : {
+        "0": "goal1",
+        "1": "goal2",
+        "2": "goal3",
+        "3": "goal4",
+        "4": "goal5",
+        "5": "goal6",
+        "6": "goal7",
+        "7": "goal8"
+    }},
+    {"category3" : {
+        "0": "goal1",
+        "1": "goal2",
+        "2": "goal3",
+        "3": "goal4",
+        "4": "goal5",
+        "5": "goal6",
+        "6": "goal7",
+        "7": "goal8"
+    }},
+    {"category4" : {
+        "0": "goal1",
+        "1": "goal2",
+        "2": "goal3",
+        "3": "goal4",
+        "4": "goal5",
+        "5": "goal6",
+        "6": "goal7",
+        "7": "goal8"
+    }},
+    {"category5" : {
+        "0": "goal1",
+        "1": "goal2",
+        "2": "goal3",
+        "3": "goal4",
+        "4": "goal5",
+        "5": "goal6",
+        "6": "goal7",
+        "7": "goal8"
+    }},
+    {"category6" : {
+        "0": "goal1",
+        "1": "goal2",
+        "2": "goal3",
+        "3": "goal4",
+        "4": "goal5",
+        "5": "goal6",
+        "6": "goal7",
+        "7": "goal8"
+    }},
+    {"category7" : {
+        "0": "goal1",
+        "1": "goal2",
+        "2": "goal3",
+        "3": "goal4",
+        "4": "goal5",
+        "5": "goal6",
+        "6": "goal7",
+        "7": "goal8"
+    }},
+    {"category8" : {
+        "0": "goal1",
+        "1": "goal2",
+        "2": "goal3",
+        "3": "goal4",
+        "4": "goal5",
+        "5": "goal6",
+        "6": "goal7",
+        "7": "goal8"
+    }}
+]
