@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta name="context-path" th:content="@{/}"/>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+
+  <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Mandrakit</title>
+
+  <!-- Fevicon -->
+  <link rel="shortcut icon" th:href="@{/images/favicon.ico}">
+  <!-- Start css -->
+  <!-- Apex css -->
+  <link th:href="@{/ext/plugins/apexcharts/apexcharts.css}" rel="stylesheet">
+  <!-- jvectormap css -->
+  <link th:href="@{/ext/plugins/jvectormap/jquery-jvectormap-2.0.2.css}" rel="stylesheet">
+  <!-- Slick css -->
+  <link th:href="@{/ext/plugins/slick/slick.css}" rel="stylesheet">
+  <link th:href="@{/ext/plugins/slick/slick-theme.css}" rel="stylesheet">
+  <!-- Switchery css -->
+  <link th:href="@{/ext/plugins/switchery/switchery.min.css}" rel="stylesheet">
+  <link th:href="@{/ext/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
+  <link th:href="@{/ext/css/icons.css}" rel="stylesheet" type="text/css">
+<!--  <link th:href="@{assets/css/flag-icon.min.css}" rel="stylesheet" type="text/css">-->
+  <link th:href="@{/ext/css/style.css}" rel="stylesheet" type="text/css">
+
+  <th:block layout:fragment="style_area"></th:block>
+  <!--  <link rel="icon" sizes="32x32" th:href="@{images/favicon-32x32.png}" type="image/png"/>-->
+<!--  <link rel="icon" sizes="16x16" th:href="@{images/favicon-16x16.png}" type="image/png"/>-->
+
+</head>
+<body>
+<div th:replace="fragments/header"></div>
+<!--  content  -->
+<div layout:fragment="content_area"></div>
+<!--footer-->
+<footer th:replace="fragments/footer"></footer>
+<!-- layout HTML End -->
+<!-- layout Script Start -->
+<div id="base_layout_script_area">
+<!--  <th:insert th:replace="~{thymeleaf/fragment/script/resource}"></th:insert>-->
+<!--  <th:insert th:replace="~{thymeleaf/fragment/script/contextAndToken}"></th:insert>-->
+<!--  <th:insert th:replace="~{thymeleaf/fragment/script/url}"></th:insert>-->
+</div>
+<!-- layout Script End -->
+<script type="text/javascript" th:src="@{/ext/dataTable/js/jquery-3.5.1.js}"></script>
+<script type="text/javascript" th:src="@{/ext/js/jquery-ui.min.js}"></script>
+<script type="text/javascript" th:src="@{/ext/bootstrap-5.2.2-dist/js/bootstrap.bundle.js}"></script>
+<script type="text/javascript" th:src="@{/ext/dataTable/js/jquery.dataTables.js}"></script>
+<script type="text/javascript" th:src="@{/ext/dataTable/js/jquery.dataTables.min.js}"></script>
+<script type="text/javascript" th:src="@{/ext/dataTable/js/dataTables.bootstrap4.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/common.js}"></script>
+<th:block layout:fragment="script_area">
+</th:block>
+</body>
+</html>

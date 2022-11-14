@@ -2,12 +2,244 @@
 <html lang="ko"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/base_layout}">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Home</title>
+  <th:block layout:fragment="style_area">
+<!--    <link rel="stylesheet" th:href="@{css/*.css}">-->
+    <style></style>
+  </th:block>
 </head>
 <body>
+<div layout:fragment="content_area">
+  <!-- Start Breadcrumbbar -->
+  <div class="breadcrumbbar">
+    <div class="row">
+      <div>
+        <h4 class="page-title">장애 조회</h4>
+        <div class="breadcrumb-list">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item font-15"><a href="index.html"><i class="feather icon-home"></i></a></li>
+            <li class="breadcrumb-item active font-14" aria-current="page">장애 조회</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Breadcrumbbar -->
+  <!-- Start Contentbar -->
+  <div class="contentbar">
+    <!-- Start row -->
+    <div class="row">
+      <!-- Start col -->
+      <div class="col-lg-12">
+        <div class="card m-b-30">
+          <div class="card-header">
+            <div class="row align-items-center">
+              <div class="col-3">
+                <h5 class="card-title mb-0">전체 6건</h5>
+              </div>
+              <div class="col-2">
+                <div class="input-group">
+                  <input type="text" id="default-date" class="datepicker-here form-control" placeholder="yyyy/mm/dd" aria-describedby="basic-addon2"/>
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2"><i class="feather icon-calendar"></i></span>
+                  </div>
+                </div>
+              </div>~
+              <div class="col-2">
+                <div class="input-group">
+                  <input type="text" id="default-date" class="datepicker-here form-control" placeholder="yyyy/mm/dd" aria-describedby="basic-addon2"/>
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2"><i class="feather icon-calendar"></i></span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-1">
+                <ul class="list-inline-group text-right mb-0 pl-0">
+                  <li class="list-inline-item">
+                    <div class="form-group mb-0 amount-spent-select">
+                      <select class="form-control font-14" id="formControlSelect">
+                        <option>전체</option>
+                        <option>최근 날짜순</option>
+                        <option>오래된 날짜순</option>
+                      </select>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-2">
+                <input type="text" class="form-control errorSearch float-right font-14" placeholder="장애 코드를 입력해주세요." id="search">
+              </div>
+              <div class="col-1">
+                <button  class="btn btn-dark-rgba float-right font-14">조회<i class="feather icon-search"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-borderless table-striped text-center">
+                <thead>
+                <tr>
+                  <th>    </th>
+                  <th>장애코드</th>
+                  <th>카테고리</th>
+                  <th>제목</th>
+                  <th>담당자</th>
+                  <th>등록일</th>
+                  <th>진행 상황</th>
+                  <th>    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td scope="row">1</td>
+                  <td>#o51010</td>
+                  <td>응답 없음</td>
+                  <td>...</td>
+                  <td>-</td>
+                  <td>2021/09/29</td>
+                  <td><h5><span class="badge badge-secondary-inverse mt-2">Waiting</span></h5></td>
+                  <td><a href="#" class="btn btn-primary-rgba" data-toggle="modal" data-target="#errorDetailModal"><i class="feather icon-file"></i></a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="errorDetailModal" tabindex="-1" role="dialog" aria-labelledby="errorDetailModalTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="errorDetailModalTitle">상세 보기</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <p class="text-right">2021/11/03</p>
+                            <h5 class="text-left font-16 font-weight-bold">장애 코드  #051010</h5>
+                            <hr>
+                            <div class="row">
+                              <div class="col-12 col-sm-8">
+                                <h6 class="text-left font-16 font-weight-bold">담당자 </h5>
+                              </div>
+                              <div class="col-12 col-sm-4">
 
+                              </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                              <div class="col-12 col-sm-3">
+                                <h6 class="text-left font-16 font-weight-bold">진행상황</h5>
+                              </div>
+                              <div class="col-12 col-sm-5">
+                                <h4><span class="badge badge-primary-inverse">Processing</span></h4>
+                              </div>
+                              <div class="col-12 col-sm-4">
+                                <a data-toggle="modal" href="#subModal" class="btn btn-secondary-rgba btn-sm font-15" type="button" id="errorButton" aria-haspopup="true" aria-expanded="false" >이력 조회</a>
+                              </div>
+                            </div>
+                            <hr>
+                            <h6 class="text-left font-weight-bold" >내용</h6>
+                            <p class="text-left font-16">- - -</p>
+                            <hr>
+                            <h6 class="text-left font-weight-bold" >댓글</h6>
+                            <p class="text-left font-16">- - -</p>
+                            <ul class="list-group list-group-flush">
+                              <li class="list-group-item">
+                                <div class="form-inline mb-2">
+                                  <label for="replyId"><i class="feather icon-user"></i></label>
+                                  <input type="text" class="form-control ml-3" placeholder="Enter yourId" id="replyId">
+                                  <button type="button" class="btn btn-secondary-rgba ml-3 float-right" onClick="javascript:addReply();">등록</button>
+                                </div>
+                                <textarea class="form-control" id="errorReplyFormControlTextarea" rows="2"></textarea>
+
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal" id="subModal" data-backdrop="static">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h4 class="modal-title">장애 이력 조회</h4>
+                            <button type="button" class="close" data-dismiss="modal">×</button>
+                          </div><div class="container"></div>
+                          <div class="modal-body">
+                            <div class="card m-b-30">
+                              <div class="card-body">
+                                <div class="ecom-notification-box">
+                                  <ul class="list-unstyled text-left">
+                                    <li class="media">
+                                      <h6><span class="mr-3 action-icon badge badge-dark-inverse"><i class="feather icon-file"></i></span></h6>
+                                      <div class="media-body">
+                                        <h5 class="action-title">장애 접수</h5>
+                                        <p class="my-3 font-15">장애가 배정되었습니다.</p>
+                                        <p><span class="timing font-14">2021-10-01, 06:48 PM</span></p>
+                                      </div>
+                                    </li>
+                                    <li class="media">
+                                      <span class="mr-3 action-icon badge badge-dark-inverse"><i class="feather icon-loader"></i></span>
+                                      <div class="media-body">
+                                        <h5 class="action-title">장애 처리 중</h5>
+                                        <p class="my-3 font-15">장애를 처리 중입니다.</p>
+                                        <p><span class="timing font-14">2021-09-29, 02:35 PM</span></p>
+                                      </div>
+                                    </li>
+                                    <li class="media">
+                                      <span class="mr-3 action-icon badge badge-dark-inverse"><i class="feather icon-check-circle"></i></span>
+                                      <div class="media-body">
+                                        <h5 class="action-title">장애 처리 완료</h5>
+                                        <p class="my-3 font-15">장애가 처리 완료되었습니다. 고객으로부터 확인 대기 중입니다.</p>
+                                        <p><span class="timing font-14">2021-09-28, 11:52 AM</span></p>
+                                      </div>
+                                    </li>
+                                    <li class="media">
+                                      <span class="mr-3 action-icon badge badge-dark-inverse"><i class="feather icon-user-check"></i></span>
+                                      <div class="media-body">
+                                        <h5 class="action-title">고객 확인 완료</h5>
+                                        <p class="my-3 font-15">고객이 확인 완료했습니다.</p>
+                                        <p><span class="timing font-14">2021-09-25, 3:22 PM</span></p>
+                                      </div>
+                                    </li>
+                                    <li class="media">
+                                      <span class="mr-3 action-icon badge badge-dark-inverse"><i class="feather icon-alert-circle"></i></span>
+                                      <div class="media-body">
+                                        <h5 class="action-title">추가 정보 필요</h5>
+                                        <p class="my-3 font-15">고객으로부터 추가 정보를 요청했습니다.</p>
+                                        <p><span class="timing font-14">2021-09-23, 05:25 PM</span></p>
+                                      </div>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <a href="#" class="btn btn-secondary close" data-dismiss="modal">닫기</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End col -->
+    </div>
+    <!-- End row -->
+  </div>
+  <!-- End Contentbar -->
+</div>
+<div layout:fragment="script_area">
+  <script th:inline="javascript">
+  </script>
+</div>
 </body>
 </html>
