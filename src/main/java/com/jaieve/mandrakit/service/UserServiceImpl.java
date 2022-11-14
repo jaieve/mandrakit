@@ -18,4 +18,14 @@ public class UserServiceImpl implements UserService {
     public List<User> getUsers() throws ExecutionException, InterruptedException {
         return userDAO.getUsers();
     }
+
+    @Override
+    public User getUser(String userId) throws ExecutionException, InterruptedException {
+        return userDAO.getUser(userId);
+    }
+
+    @Override
+    public void saveGoal(String userKey, String goalKey) throws ExecutionException, InterruptedException {
+        userDAO.saveGoal(userKey, goalKey);
+    }
 }

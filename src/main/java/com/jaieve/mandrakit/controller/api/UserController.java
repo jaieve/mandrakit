@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -25,5 +26,11 @@ public class UserController {
         List<User> list = userService.getUsers();
 //        log.info(this.)
         return ResponseEntity.ok().body(list);
+    }
+
+    @GetMapping("/user")
+    public ResponseEntity<Object> getUsers(@RequestParam String userKey) throws ExecutionException, InterruptedException {
+        User user = userService.getUser(userKey);
+        return ResponseEntity.ok().body(user);
     }
 }

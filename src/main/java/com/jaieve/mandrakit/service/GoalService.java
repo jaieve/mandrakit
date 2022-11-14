@@ -1,10 +1,10 @@
 package com.jaieve.mandrakit.service;
 
-import com.jaieve.mandrakit.dto.Goal;
+import com.jaieve.mandrakit.dto.Category;
 
-import java.io.IOException;
-import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public interface GoalService {
-    void save(List<Goal> goals, String userId) throws IOException;
+    String save(Category category);
+    Category getGoal(String userId) throws ExecutionException, InterruptedException;
 }
