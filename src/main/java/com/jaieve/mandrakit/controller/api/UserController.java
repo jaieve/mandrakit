@@ -15,22 +15,22 @@ import java.util.concurrent.ExecutionException;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/test/v1")
+@RequestMapping("/users")
 @Slf4j
 public class UserController {
 //    private
     private final UserService userService;
 
-    @GetMapping("/users")
+    @GetMapping
+    public ResponseEntity<Object> getUsers(@RequestParam String userKey) throws ExecutionException, InterruptedException {
+        User user = userService.getUser(userKey);
+        return ResponseEntity.ok().body(user);
+    }
+
+    @GetMapping("/list")
     public ResponseEntity<Object> getUsers() throws ExecutionException, InterruptedException {
         List<User> list = userService.getUsers();
 //        log.info(this.)
         return ResponseEntity.ok().body(list);
-    }
-
-    @GetMapping("/user")
-    public ResponseEntity<Object> getUsers(@RequestParam String userKey) throws ExecutionException, InterruptedException {
-        User user = userService.getUser(userKey);
-        return ResponseEntity.ok().body(user);
     }
 }
