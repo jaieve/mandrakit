@@ -20,12 +20,22 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUser(String userId) throws ExecutionException, InterruptedException {
-        return userDAO.getUser(userId);
+    public User getUser(String userKey) throws ExecutionException, InterruptedException {
+        return userDAO.getUser(userKey);
+    }
+
+    @Override
+    public User getUserById(String userId) throws ExecutionException, InterruptedException {
+        return userDAO.getUserById(userId);
     }
 
     @Override
     public void saveGoal(String userKey, String goalKey) throws ExecutionException, InterruptedException {
         userDAO.saveGoal(userKey, goalKey);
+    }
+
+    @Override
+    public void saveUser(User user) throws ExecutionException, InterruptedException {
+        userDAO.saveUser(user);
     }
 }

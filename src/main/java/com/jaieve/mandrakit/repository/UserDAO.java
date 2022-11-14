@@ -35,10 +35,24 @@ public class UserDAO {
         DocumentSnapshot document = future.get();
         User user = null;
         if (document.exists()) {
+            String documentId = document.getId();
             user = document.toObject(User.class);
-            log.info("User : {}", user);
+            user.setUserId(documentId);
+            log.info("User documentId: {}", documentId);
         } else {
             log.info("User is null");
+        }
+        return user;
+    }
+
+    public User getUserById(String userId) throws ExecutionException, InterruptedException {
+        Firestore db = FirestoreClient.getFirestore();
+        CollectionReference users = db.collection(COLLECTION_NAME);
+        Query query = users.whereEqualTo("userId", userId);
+        ApiFuture<QuerySnapshot> querySnapshot = query.get();
+        User user = null;
+        for( DocumentSnapshot document : querySnapshot.get().getDocuments()) {
+            user = document.toObject(User.class);
         }
         return user;
     }
@@ -48,5 +62,12 @@ public class UserDAO {
         DocumentReference docRef = db.collection(COLLECTION_NAME).document(userKey);
         ApiFuture<WriteResult> writeResult  = docRef.update("goalId", goalKey);
         log.info("Update Result : " + writeResult.get());
+    }
+
+    public void saveUser(User user) throws ExecutionException, InterruptedException {
+        Firestore db = FirestoreClient.getFirestore();
+        DocumentReference docRef = db.collection(COLLECTION_NAME).document(user.getUserId());
+        ApiFuture<WriteResult> writeResult = docRef.set(user);
+        log.info("Insert Result : {}", writeResult.get());
     }
 }
